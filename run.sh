@@ -6,7 +6,7 @@ docker run -d \
   -e DOCKER_MODS=linuxserver/mods:universal-calibre `#optional` \
   -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` \
   -p 8015:8015 \
-  -v /volume1/calserve/data:/config \
+  -v /volume1/docker/calserve/data:/config \
   -v /var/services/homes/mark/Drive/monsterbookcollection:/books \
   --restart unless-stopped \
   lscr.io/linuxserver/calibre-web:latest
