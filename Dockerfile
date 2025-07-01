@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxcb-keysyms1 \
     libxcb-render-util0 \
     libxcb-xinerama0 \
-    libxcb-xfixes0 \
+    libxcb-xfixes0     libopengl0
     && rm -rf /var/lib/apt/lists/*
 
 # Download and install Calibre
@@ -29,11 +29,11 @@ USER calibre
 WORKDIR /home/calibre
 
 # Set default values for the port and library path
-ENV CALIBRE_PORT=8080
+
 ENV CALIBRE_LIBRARY_PATH=/home/calibre/library
 
 # Expose the default port
-EXPOSE 8080
+
 
 # Create the default library directory
 RUN mkdir -p ${CALIBRE_LIBRARY_PATH}

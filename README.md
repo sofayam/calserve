@@ -5,7 +5,6 @@ This project provides a Dockerized Calibre server that allows you to access your
 ## Prerequisites
 
 - Docker
-- Docker Compose
 
 ## Getting Started
 
@@ -25,17 +24,23 @@ This project provides a Dockerized Calibre server that allows you to access your
     Edit the `.env` file to set your desired port and library path:
 
     ```
-    CALIBRE_PORT=8080
+    CALIBRE_PORT=8081
     CALIBRE_LIBRARY_PATH=./my-library
     ```
 
-3.  **Build and run the Docker container:**
+3.  **Build the Docker image:**
 
     ```bash
-    docker-compose up -d
+    ./build.sh
     ```
 
-4.  **Access the Calibre server** by opening your web browser and navigating to `http://localhost:8080` (or the port you specified).
+4.  **Run the Docker container:**
+
+    ```bash
+    ./run.sh
+    ```
+
+5.  **Access the Calibre server** by opening your web browser and navigating to `http://localhost:${CALIBRE_PORT}` (or the port you specified).
 
 ## Configuration
 
@@ -49,5 +54,5 @@ The following environment variables can be set in the `.env` file:
 To stop the Calibre server, run the following command:
 
 ```bash
-docker-compose down
+docker stop calibre-server
 ```

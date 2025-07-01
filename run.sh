@@ -18,7 +18,8 @@ echo "Starting Calibre server on port ${CALIBRE_PORT}..."
 echo "Library path: ${CALIBRE_LIBRARY_PATH}"
 
 docker run -d \
-  -p ${CALIBRE_PORT}:8080 \
+  -p ${CALIBRE_PORT}:${CALIBRE_PORT} \
+  -e CALIBRE_PORT=${CALIBRE_PORT} \
   -v "$(pwd)/${CALIBRE_LIBRARY_PATH}":/home/calibre/library \
   --name calibre-server \
   calibre-server:latest
