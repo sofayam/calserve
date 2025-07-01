@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libxcb-render-util0 \
     libxcb-xinerama0 \
     libxcb-xfixes0 \
+    libxcb-cursor0 \
     libgl1-mesa-dev \
     && rm -rf /var/lib/apt/lists/*
 
@@ -31,13 +32,13 @@ WORKDIR /home/calibre
 
 # Set default values for the port and library path
 
-ENV CALIBRE_LIBRARY_PATH=/home/calibre/library
+
 
 # Expose the default port
 
 
 # Create the default library directory
-RUN mkdir -p ${CALIBRE_LIBRARY_PATH}
+
 
 # Set the entrypoint to run the Calibre server
 ENTRYPOINT ["/opt/calibre/calibre-server"]
