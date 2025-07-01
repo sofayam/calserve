@@ -6,7 +6,20 @@ FROM python:3.9-slim
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies for Calibre
-RUN apt-get update && apt-get install -y --no-install-recommends     wget     xz-utils     libgl1-mesa-glx     libegl1-mesa     libxkbcommon-x11-0     libxcb-icccm4     libxcb-image0     libxcb-keysyms1     libxcb-render-util0     libxcb-xinerama0     libxcb-xfixes0 \    libopengl0 \    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends 
+    wget 
+    xz-utils 
+    libgl1-mesa-glx 
+    libegl1-mesa 
+    libxkbcommon-x11-0 
+    libxcb-icccm4 
+    libxcb-image0 
+    libxcb-keysyms1 
+    libxcb-render-util0 
+    libxcb-xinerama0 
+    libxcb-xfixes0 
+    libgl1-mesa-dev 
+    && rm -rf /var/lib/apt/lists/*
 
 # Download and install Calibre
 RUN wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin
